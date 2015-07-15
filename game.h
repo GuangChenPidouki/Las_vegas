@@ -1,17 +1,21 @@
 #include <vector>
-#include <card.h>
-#include <cstdlib>
+#include "card.h"
+#include <iostream>
+
+using namespace std;
 
 class game{
-	vector<card> first_show(deck &d){
-		vector<card> first_five;
-		srand(time(NULL));
-			int irand = rand() % 54;
-			if(irand > 51){
-				
-			}
-			else{
-
-			}
-	}
+public:
+    game(deck *deck):cur_deck(deck){}
+	void first_show();
+private:
+    vector<card> my_card;
+    deck *cur_deck;
 };
+
+void game::first_show(){
+    cout << "first show:" << endl;
+    for(int i = 0; i < 5; i++){  
+        cur_deck->v_card[i].show();
+    }
+}

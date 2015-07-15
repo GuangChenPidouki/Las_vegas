@@ -1,10 +1,17 @@
 #include <string>
 #include <vector>
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
 
 class card{
 public:
 	card(int v, string c):value(v), color(c), chosen(false){}
-private:
+    void show(){
+        cout << color << " " << value << endl;
+    }
+//private:
 	int value;
 	string color;
 	bool chosen;
@@ -20,11 +27,19 @@ public:
 		v_card.push_back(card(0, "big king"));
 		v_card.push_back(card(0, "small king"));
 	}
-	suffle()
+	void shuffle();
 	void reset(){
 		for(auto i : v_card)
 			i.chosen = false;
 	}
-private:
+//private:
 	vector<card> v_card;
 };
+
+void deck::shuffle(){
+    srand(time(NULL));
+    for(int i = 0; i < 53; i++){
+          int swap_idx = i+1 + rand() % (53-i);
+          swap(v_card[i], v_card[swap_idx]);
+    }
+}

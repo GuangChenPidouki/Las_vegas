@@ -1,9 +1,12 @@
 #include <iostream>
+#include <card.h>
 
 using namespace;
 
 int main(){
 	//init
+	deck my_deck;
+
 	cout << "Welcome to Las Vegas!" << endl;
 	cout << "1: PLAY" << endl;
 	cout << "2: QUIT" << endl;
